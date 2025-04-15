@@ -2,93 +2,133 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Secciones por Navbar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secciones con Bootstrap</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* 👈 evita scroll */
-      height: 100vh;
-    }
-
     .section {
       display: none;
-      height: 100vh;
-      width: 100vw;
-      padding-top: 60px; /* para que no tape la navbar */
-      overflow-y: auto;
     }
-
     .section.active {
       display: block;
     }
-
-    #autos { background: #f8f9fa; }
-    #electricidad { background: #6c757d; color: white; }
-    #programacion { background: #e9ecef; }
   </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Mi Sitio</a>
+    <a class="navbar-brand" href="#">Mi Web</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="mostrarSeccion('autos')">Autos</a>
+          <a class="nav-link active" href="#" onclick="showSection('autos')">Autos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="mostrarSeccion('electricidad')">Electricidad</a>
+          <a class="nav-link" href="#" onclick="showSection('electricidad')">Electricidad</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="mostrarSeccion('programacion')">Programación</a>
+          <a class="nav-link" href="#" onclick="showSection('programacion')">Programación</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- SECCIONES -->
+<!-- SECCIÓN AUTOS (FEATURES) -->
 <div id="autos" class="section active">
-  <div class="container">
-    <h1>Autos</h1>
-    <p>Contenido sobre autos... (puedes hacer scroll dentro de esta sección si tiene mucho contenido).</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nibh et facilisis blandit...</p>
-    <p>[más contenido aquí]</p>
+  <div class="container py-5">
+    <h2 class="pb-2 border-bottom">Autos - Features</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <h3 class="fs-2">Velocidad</h3>
+        <p>Los autos deportivos ofrecen un rendimiento increíble y aceleración impresionante.</p>
+      </div>
+      <div class="feature col">
+        <h3 class="fs-2">Diseño</h3>
+        <p>El diseño aerodinámico mejora la eficiencia y el estilo moderno destaca en la carretera.</p>
+      </div>
+      <div class="feature col">
+        <h3 class="fs-2">Tecnología</h3>
+        <p>Integración de navegación, sensores inteligentes y asistentes de conducción.</p>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- SECCIÓN ELECTRICIDAD (CAROUSEL) -->
 <div id="electricidad" class="section">
-  <div class="container">
-    <h1>Electricidad</h1>
-    <p>Contenido sobre electricidad...</p>
+  <div id="electricCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://via.placeholder.com/1200x400?text=Electricidad+1" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Instalaciones eléctricas</h5>
+          <p>Soluciones seguras para tu hogar o empresa.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/1200x400?text=Electricidad+2" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Domótica</h5>
+          <p>Control de iluminación y energía automatizado.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/1200x400?text=Electricidad+3" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Energía renovable</h5>
+          <p>Integración de paneles solares y soluciones verdes.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#electricCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#electricCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
   </div>
 </div>
 
+<!-- SECCIÓN PROGRAMACIÓN (BLOG) -->
 <div id="programacion" class="section">
-  <div class="container">
-    <h1>Programación en HTML</h1>
-    <p>Contenido sobre programación en HTML...</p>
+  <div class="container py-5">
+    <h2 class="pb-2 border-bottom">Blog - Programación</h2>
+    <div class="row g-5">
+      <div class="col-md-6">
+        <article>
+          <h3>¿Qué es HTML?</h3>
+          <p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. Define la estructura básica de una web.</p>
+        </article>
+      </div>
+      <div class="col-md-6">
+        <article>
+          <h3>¿Cómo empezar a programar?</h3>
+          <p>Aprender programación requiere práctica constante, elegir un lenguaje adecuado y seguir proyectos reales. HTML es un excelente comienzo.</p>
+        </article>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- SCRIPT PARA CAMBIAR DE SECCIÓN -->
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  function mostrarSeccion(id) {
-    document.querySelectorAll('.section').forEach(section => {
-      section.classList.remove('active');
-    });
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    const navLink = Array.from(document.querySelectorAll('.nav-link')).find(link => link.textContent.toLowerCase().includes(id));
+    if (navLink) navLink.classList.add('active');
   }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
