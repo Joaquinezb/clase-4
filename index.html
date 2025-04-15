@@ -1,134 +1,221 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Secciones con Bootstrap</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .section {
-      display: none;
-    }
-    .section.active {
-      display: block;
-    }
-  </style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Mi Web</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#" onclick="showSection('autos')">Autos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('electricidad')">Electricidad</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('programacion')">Programación</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- SECCIÓN AUTOS (FEATURES) -->
-<div id="autos" class="section active">
-  <div class="container py-5">
-    <h2 class="pb-2 border-bottom">Autos - Features</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <h3 class="fs-2">Velocidad</h3>
-        <p>Los autos deportivos ofrecen un rendimiento increíble y aceleración impresionante.</p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog Multi Sección</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+      .seccion {
+        display: none;
+      }
+      .seccion-activa {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mi Sitio</a>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="mostrarSeccion('autos')">Autos</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="mostrarSeccion('electricidad')">Electricidad</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#" onclick="mostrarSeccion('programacion')">Programación</a></li>
+        </ul>
       </div>
-      <div class="feature col">
-        <h3 class="fs-2">Diseño</h3>
-        <p>El diseño aerodinámico mejora la eficiencia y el estilo moderno destaca en la carretera.</p>
-      </div>
-      <div class="feature col">
-        <h3 class="fs-2">Tecnología</h3>
-        <p>Integración de navegación, sensores inteligentes y asistentes de conducción.</p>
-      </div>
-    </div>
-  </div>
-</div>
+    </header>
 
-<!-- SECCIÓN ELECTRICIDAD (CAROUSEL) -->
-<div id="electricidad" class="section">
-  <div id="electricCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://via.placeholder.com/1200x400?text=Electricidad+1" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Instalaciones eléctricas</h5>
-          <p>Soluciones seguras para tu hogar o empresa.</p>
+    <main class="container my-5">
+
+      <!-- Sección Autos con estilo blog de Bootstrap -->
+      <section id="autos" class="seccion seccion-activa">
+        <div class="container py-5">
+          <h2 class="mb-4">Sección de Autos</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            
+            <div class="col">
+              <div class="card h-100 text-center border-0">
+                <div class="card-body">
+                  <div class="icon-box bg-primary text-white rounded-circle mx-auto mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-car-front-fill fs-3 d-flex align-items-center justify-content-center h-100"></i>
+                  </div>
+                  <h5 class="card-title">Mantenimiento</h5>
+                  <p class="card-text">Tips sobre mantención preventiva, revisiones y duración de componentes.</p>
+                  <a href="#" class="btn btn-outline-primary btn-sm">Ver más</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100 text-center border-0">
+                <div class="card-body">
+                  <div class="icon-box bg-success text-white rounded-circle mx-auto mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-fuel-pump-fill fs-3 d-flex align-items-center justify-content-center h-100"></i>
+                  </div>
+                  <h5 class="card-title">Combustible</h5>
+                  <p class="card-text">¿Qué tipo usar? Comparativas entre gasolina, diésel y eléctricos.</p>
+                  <a href="#" class="btn btn-outline-success btn-sm">Saber más</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="card h-100 text-center border-0">
+                <div class="card-body">
+                  <div class="icon-box bg-warning text-dark rounded-circle mx-auto mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-gear-wide-connected fs-3 d-flex align-items-center justify-content-center h-100"></i>
+                  </div>
+                  <h5 class="card-title">Tecnología</h5>
+                  <p class="card-text">Avances en conducción asistida, sensores, y conectividad en autos modernos.</p>
+                  <a href="#" class="btn btn-outline-warning btn-sm">Explorar</a>
+                </div>
+              </div>
+            </div>
+        
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://via.placeholder.com/1200x400?text=Electricidad+2" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Domótica</h5>
-          <p>Control de iluminación y energía automatizado.</p>
+        
+        <div class="row g-5">
+          <div class="col-md-8">
+            <article class="blog-post">
+              <h2 class="blog-post-title">El Mundo de los Motores: Conceptos Básicos que Todo Entusiasta Debe Conocer</h2>
+              <p>Hola, amantes de los motores! Si estás aquí, es porque compartes esa pasión por el rugido de un buen escape, la sensación de acelerar en una recta abierta o el placer de entender cómo funciona esa máquina que nos lleva de A a B. Hoy, vamos a repasar algunos conceptos clave para que hables como un verdadero experto en tu próximo meet de autos.</p>
+              <h4>Motor de Combustión vs. Eléctrico:</h4>
+              <p>El clásico motor de combustión interna (gasolina/diésel) convierte la energía química en movimiento mediante explosiones controladas.</p>
+              <p>Los motores eléctricos, en auge gracias a la sostenibilidad, usan baterías y electromagnetismo. ¡Cero emisiones y máximo torque desde el primer segundo!</p>
+              <h4>Transmisión: ¿Manual o Automática?</h4>
+              <p>La manual te da control total (¡y diversión!), mientras que la automática prioriza la comodidad. Ahora, las CVT y las de doble embrague están revolucionando el mercado.</p>
+              <h4>Mantenimiento Básico:</h4>
+              <ul>
+                <li>Aceite y filtros: Cambios periódicos para evitar desgaste.</li>
+                <li>Neumáticos: Presión correcta = seguridad + ahorro de combustible.</li>
+                <li>Frenos: Si escuchas chirridos, ¡es hora de revisar las pastillas!</li>
+              </ul>
+              <h4>Tecnología en Marcha:</h4>
+              <p>Sistemas como el ADAS (asistencia a la conducción) o los motores híbridos están redefiniendo la experiencia al volante. ¿Ya probaste un coche con modo Sport?</p>
+              <p>¿Listo para seguir aprendiendo? ¡Comparte en los comentarios qué tema te gustaría explorar!</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="fst-italic">Sobre Autos</h4>
+                <p class="mb-0">Temas esenciales del mundo motor, desde el motor hasta la tecnología.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://via.placeholder.com/1200x400?text=Electricidad+3" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Energía renovable</h5>
-          <p>Integración de paneles solares y soluciones verdes.</p>
+      </section>
+
+      <!-- Sección Electricidad con estilo features -->
+      <section id="electricidad" class="seccion">
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="feature col">
+            <h3 class="fs-2 text-primary">Electricidad 101: Conceptos Clave para Entender y Aprovechar la Energía Eléctrica</h3>
+            <p>¡Hola, curiosos de la energía! Hoy vamos a desglosar conceptos básicos de electricidad que te ayudarán a entender desde cómo funciona una bombilla hasta cómo optimizar el consumo en tu hogar.</p>
+            <h4>Corriente Alterna (CA) vs. Corriente Continua (CC):</h4>
+            <p>La CA (como la de tu casa) cambia de dirección constantemente y es ideal para transportar energía a largas distancias.</p>
+            <p>La CC (como la de las pilas) fluye en una sola dirección. ¡Es la favorita de tus dispositivos electrónicos!</p>
+          </div>
+          <div class="feature col">
+            <h4>Ley de Ohm: El ABC de los Circuitos:</h4>
+            <p>Voltaje (V) = Corriente (I) x Resistencia (R). Esta fórmula es la base para diseñar o reparar circuitos. ¿Un fusible quemado? Probablemente exceso de corriente.</p>
+            <h4>Componentes Esenciales:</h4>
+            <ul>
+              <li>Resistencias: Limitan el flujo de corriente.</li>
+              <li>Capacitores: Almacenan energía temporalmente.</li>
+              <li>Interruptores: El "sí" o "no" del flujo eléctrico.</li>
+            </ul>
+          </div>
+          <div class="feature col">
+            <h4>Seguridad Primero:</h4>
+            <ul>
+              <li>No sobrecargues enchufes: Cada circuito tiene un límite.</li>
+              <li>Usa guantes aislantes si trabajas con tensiones altas.</li>
+              <li>Instala interruptores diferenciales para evitar accidentes.</li>
+            </ul>
+            <h4>Ahorro Energético:</h4>
+            <ul>
+              <li>Opta por LEDs en lugar de bombillas incandescentes.</li>
+              <li>Usa reguladores de voltaje para proteger tus equipos.</li>
+              <li>¡Los paneles solares ya no son solo para expertos!</li>
+            </ul>
+            <p>¿Te animas a aplicar estos tips? La electricidad es fascinante, pero siempre respeta su poder.</p>
+          </div>
         </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#electricCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#electricCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
-  </div>
-</div>
+      </section>
 
-<!-- SECCIÓN PROGRAMACIÓN (BLOG) -->
-<div id="programacion" class="section">
-  <div class="container py-5">
-    <h2 class="pb-2 border-bottom">Blog - Programación</h2>
-    <div class="row g-5">
-      <div class="col-md-6">
-        <article>
-          <h3>¿Qué es HTML?</h3>
-          <p>HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. Define la estructura básica de una web.</p>
-        </article>
-      </div>
-      <div class="col-md-6">
-        <article>
-          <h3>¿Cómo empezar a programar?</h3>
-          <p>Aprender programación requiere práctica constante, elegir un lenguaje adecuado y seguir proyectos reales. HTML es un excelente comienzo.</p>
-        </article>
-      </div>
-    </div>
-  </div>
-</div>
+      <!-- Sección Programación con estilo carousel -->
+      <section id="programacion" class="seccion">
+        <div id="carouselHTML" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="p-5 text-center bg-light rounded-3">
+                <h2>HTML Básico: Domina el Arte de Crear Páginas Web desde Cero</h2>
+                <p>¡Hola, creadores digitales! Si estás empezando en el mundo del desarrollo web, HTML es tu mejor aliado. Es el esqueleto de toda página web, y hoy te enseñaré cómo usarlo para agregar imágenes, enlaces y otros elementos clave.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-5 text-center bg-light rounded-3">
+                <h2>Insertar Imágenes</h2>
+                <p>&lt;img src="ruta-de-tu-imagen.jpg" alt="Descripción de la imagen" width="300" height="200"&gt;</p>
+                <ul>
+                  <li>Usa formatos optimizados como JPEG o PNG.</li>
+                  <li>El atributo alt es obligatorio. ¡Describe lo que se ve!</li>
+                  <li>Ajusta width y height para evitar cambios bruscos.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-5 text-center bg-light rounded-3">
+                <h2>Imágenes con Enlace</h2>
+                <p>&lt;a href="https://tusitio.com/seccion-especial" target="_blank"&gt;&lt;img src="banner-promocional.png" alt="Oferta exclusiva"&gt;&lt;/a&gt;</p>
+                <p>Combínalo con CSS para efectos hover como brillo al pasar el mouse.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-5 text-center bg-light rounded-3">
+                <h2>Listas, Anclas y Estructura</h2>
+                <p>&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;&lt;/ul&gt;</p>
+                <p>&lt;a href="#contacto"&gt;Ir a Contacto&lt;/a&gt;</p>
+                <p>&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;Título&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;!-- Contenido --&gt; &lt;/body&gt; &lt;/html&gt;</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="p-5 text-center bg-light rounded-3">
+                <h2>Herramientas para Practicar</h2>
+                <ul>
+                  <li>Editores de Código: VS Code, Sublime Text.</li>
+                  <li>Validadores HTML: <a href="https://validator.w3.org/" target="_blank">W3C Validator</a></li>
+                  <li>Hosting de Imágenes Gratis: <a href="https://imgbb.com/" target="_blank">ImgBB</a></li>
+                </ul>
+                <p>¡Experimenta! Prueba combinar imágenes, textos y enlaces, y verás cómo cobra vida tu primera página web.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselHTML" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselHTML" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </section>
 
-<!-- BOOTSTRAP SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    const navLink = Array.from(document.querySelectorAll('.nav-link')).find(link => link.textContent.toLowerCase().includes(id));
-    if (navLink) navLink.classList.add('active');
-  }
-</script>
+    </main>
 
-</body>
+    <script>
+      function mostrarSeccion(id) {
+        const secciones = document.querySelectorAll('.seccion');
+        secciones.forEach(sec => sec.classList.remove('seccion-activa'));
+        document.getElementById(id).classList.add('seccion-activa');
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
